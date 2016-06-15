@@ -43,13 +43,13 @@ setTimeout(function() {
     var dats = lines.replace(/\uFFFD/g, '');
 		var dat = dats.replace(/ /g, '_');
 		var datt = dat.replace(/[^a-z0-9A-Z,._?!]/g, '');
-    fs.renameSync(`D:/App/pixivdown/htemp/lines`, `D:/App/pixivdown/htemp/${datt}`);
+    fs.renameSync(`D:/App/pixivdown/htemp/${lines}`, `D:/App/pixivdown/htemp/${datt}`);
 		} else {
 			fs.createReadStream(datta).pipe(fs.createWriteStream("D:/App/pixivdown/vtemp/" + lines));
       var dats = lines.replace(/\uFFFD/g, '');
   		var dat = dats.replace(/ /g, '_');
   		var datt = dat.replace(/[^a-z0-9A-Z,._?!]/g, '');
-      fs.renameSync(`D:/App/pixivdown/vtemp/lines`, `D:/App/pixivdown/vtemp/${datt}`); 
+      fs.renameSync(`D:/App/pixivdown/vtemp/${lines}`, `D:/App/pixivdown/vtemp/${datt}`); 
 		};
 		setTimeout(function() {
 			// ...and continue emitting lines.
