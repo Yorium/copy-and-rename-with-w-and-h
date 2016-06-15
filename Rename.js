@@ -40,21 +40,25 @@ setTimeout(function() {
 		var dimensions = sizeOf(datta);
 		if (dimensions.width > dimensions.height) {
 		fs.createReadStream(datta).pipe(fs.createWriteStream("D:/App/pixivdown/htemp/" + lines));
+		setTimeout(function() {
     var dats = lines.replace(/\uFFFD/g, '');
 		var dat = dats.replace(/ /g, '_');
 		var datt = dat.replace(/[^a-z0-9A-Z,._?!]/g, '');
     fs.renameSync(`D:/App/pixivdown/htemp/${lines}`, `D:/App/pixivdown/htemp/${datt}`);
+		}, 1000);
 		} else {
 			fs.createReadStream(datta).pipe(fs.createWriteStream("D:/App/pixivdown/vtemp/" + lines));
+			setTimeout(function() {
       var dats = lines.replace(/\uFFFD/g, '');
   		var dat = dats.replace(/ /g, '_');
   		var datt = dat.replace(/[^a-z0-9A-Z,._?!]/g, '');
       fs.renameSync(`D:/App/pixivdown/vtemp/${lines}`, `D:/App/pixivdown/vtemp/${datt}`);
+			}, 1000);
 		};
 		setTimeout(function() {
 			// ...and continue emitting lines.
 			lr.resume();
-		}, 1000);
+		}, 400);
 	});
 	lr.on('end', function() {
 		// All lines are read, file is closed now.
