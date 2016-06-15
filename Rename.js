@@ -49,12 +49,12 @@ setTimeout(function() {
       var dats = lines.replace(/\uFFFD/g, '');
   		var dat = dats.replace(/ /g, '_');
   		var datt = dat.replace(/[^a-z0-9A-Z,._?!]/g, '');
-      fs.renameSync(`D:/App/pixivdown/vtemp/${lines}`, `D:/App/pixivdown/vtemp/${datt}`); 
+      fs.renameSync(`D:/App/pixivdown/vtemp/${lines}`, `D:/App/pixivdown/vtemp/${datt}`);
 		};
 		setTimeout(function() {
 			// ...and continue emitting lines.
 			lr.resume();
-		}, 100);
+		}, 500);
 	});
 	lr.on('end', function() {
 		// All lines are read, file is closed now.
