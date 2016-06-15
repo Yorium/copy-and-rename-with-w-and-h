@@ -54,7 +54,7 @@ setTimeout(function() {
 		setTimeout(function() {
 			// ...and continue emitting lines.
 			lr.resume();
-		}, 500);
+		}, 1000);
 	});
 	lr.on('end', function() {
 		// All lines are read, file is closed now.
